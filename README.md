@@ -1,6 +1,9 @@
 
 ### Un poco de información
 
+Este proyecto es una aplicación desarrollada con Ionic y Angular que permite la gestión de usuarios y sus teléfonos asociados.
+A través de una interfaz intuitiva, los usuarios pueden realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre los registros de usuarios y teléfonos.
+
 - **components**: Contiene los componentes de la aplicación.
   - `usuario-form`: Componente para crear y editar usuarios.
   - `usuario-list`: Componente para mostrar la lista de usuarios con sus respectivos datos.
@@ -19,3 +22,18 @@
 
    ```bash
    git clone https://github.com/tu-usuario/tu-repositorio.git
+
+2.
+   ```bash
+    cd tu-repositorio
+   
+3. Instala las dependencias del proyecto.
+
+   ```bash
+    npm install
+
+4. Inicia la aplicación utilizando el siguiente comando:
+   
+   ```bash
+    ionic serve
+
