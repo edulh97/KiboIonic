@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addUsuario()">
+        <ion-icon name="person-outline"></ion-icon>
+           Crear Usuario
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col><strong>Nombre</strong></ion-col>
+      <ion-col><strong>Email</strong></ion-col>
+      <ion-col><strong>Direccion</strong></ion-col>
+      <ion-col><strong>Tipo de usuario</strong></ion-col>
+      <ion-col><strong>Acciones</strong></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let usuario of usuarios">
+      <ion-col>{{ usuario.nombreCompleto }}</ion-col>
+      <ion-col>{{ usuario.correoElectronico}}</ion-col>
+      <ion-col>{{ usuario.direccion }}</ion-col>
+      <ion-col>{{ usuario.tipoUsuario }}</ion-col>
+      <ion-col>
+        <ion-button size="small" (click)="editUsuario(usuario)">
+          <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+        </ion-button>        
+        <ion-button size="small" color="success" (click)="verTelefonos(usuario)">
+          <ion-icon slot="icon-only" name="call-outline"></ion-icon>
+        </ion-button>        
+        <ion-button size="small" color="warning" (click)="verDetalleUsuario(usuario)">
+          <ion-icon slot="icon-only" name="alert-circle-outline"></ion-icon>
+        </ion-button>                      
+        <ion-button size="small" color="danger" (click)="deleteUsuario(usuario.id!)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="mostrarTelefonos">
+    <h1>Teléfonos de {{usuarioSeleccionadoNombre}} (ID: {{usuarioSeleccionado}})</h1>
+    <ion-list *ngIf="telefonosSeleccionados && telefonosSeleccionados.length > 0">
+      <ion-item *ngFor="let tel of telefonosSeleccionados">
+        <ion-label>{{ tel.telefono }}</ion-label>
+        <ion-button slot="end" color="danger" (click)="deleteTelefono(tel.telefono)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nuevo</ion-label>
+      <ion-input [(ngModel)]="nuevoTelefono" placeholder="Ingrese el teléfono" type="number"></ion-input>
+    </ion-item>
+    <ion-button (click)="addTelefono()" color="primary">Añadir Teléfono</ion-button>
+  </div>
+</ion-content>

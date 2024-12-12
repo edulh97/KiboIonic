@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ usuario ? 'Editar Usuario' : 'Añadir Usuario' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="usuarioForm" (ngSubmit)="saveUsuario()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Nombre y Apellidos</ion-label>
+        <ion-input formControlName="nombreCompleto"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="correoElectronico"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Direccion</ion-label>
+        <ion-textarea formControlName="direccion"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="contrasena"></ion-input>
+      </ion-item>      
+      <ion-item>
+        <ion-label position="stacked">Número de tarjeta</ion-label>
+        <ion-input type="number" formControlName="tarjeta"></ion-input>
+      </ion-item>      
+      <ion-item>
+        <ion-label>Tipo de usuario</ion-label>
+        <ion-select formControlName="tipoUsuario" interface="popover">
+          <ion-select-option value="registrado">Registrado</ion-select-option>
+          <ion-select-option value="invitado">Invitado</ion-select-option>
+        </ion-select>
+      </ion-item>      
+    </ion-list>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button type="submit" [disabled]="usuarioForm.invalid">
+            Guardar
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </form>
+</ion-content>
