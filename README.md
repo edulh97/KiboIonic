@@ -23,16 +23,17 @@ A través de una interfaz intuitiva, los usuarios pueden realizar operaciones CR
    ```bash
    git clone https://github.com/tu-usuario/tu-repositorio.git
 
-2.
+2. Navega al directorio del proyecto
+   
    ```bash
     cd tu-repositorio
    
-3. Instala las dependencias del proyecto.
+4. Instala las dependencias del proyecto.
 
    ```bash
     npm install
 
-4. Inicia la aplicación utilizando el siguiente comando:
+5. Inicia la aplicación utilizando el siguiente comando:
    
    ```bash
     ionic serve
