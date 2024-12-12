@@ -1,5 +1,5 @@
 
-### Un poco de infor
+### Un poco de información
 
 - **components**: Contiene los componentes de la aplicación.
   - `usuario-form`: Componente para crear y editar usuarios.
